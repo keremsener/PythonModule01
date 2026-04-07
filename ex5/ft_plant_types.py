@@ -51,7 +51,7 @@ class Flower(Plant):
             print(f"{self.name} has not bloomed yet")
             self.has_bloomed = True
         else:
-            print(f"{self.name} is blooming beautifully!")      
+            print(f"{self.name} is blooming beautifully!")
 
 
 class Tree(Plant):
