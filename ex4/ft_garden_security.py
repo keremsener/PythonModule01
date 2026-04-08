@@ -35,7 +35,6 @@ if __name__ == "__main__":
 
     print(f"Plant created: {rose.name}: {rose.get_height()}cm,\
  {rose.get_age()} days old")
-
     rose.set_height(25.0)
     rose.set_age(30)
     print("\n")
