@@ -13,6 +13,11 @@ class Plant:
         self._age = age
         self.stats = self._Stats()
 
+    @classmethod
+    def anonymous(cls):
+        print("Anonymous")
+        return cls("Unknown plant", 0.0, 0)
+
     @staticmethod
     def is_old_than_a_year(age):
         if age > 365:
@@ -51,6 +56,7 @@ class Plant:
     def show(self):
         print(f"{self.name}: {round(self._height, 1)}cm, \
 {self._age} days old")
+        self.stats.show_count += 1
 
 
 class Flower(Plant):
@@ -62,7 +68,6 @@ class Flower(Plant):
     def show(self):
         super().show()
         print(f"Color: {self.color}")
-        self.stats.show_count += 1
 
     def bloom(self):
         if not self.has_bloomed:
@@ -85,7 +90,6 @@ class Tree(Plant):
     def show(self):
         super().show()
         print(f"Trunk diameter: {self.trunk}cm")
-        self.stats.show_count += 1
 
 
 class Seed(Flower):
@@ -157,3 +161,9 @@ if __name__ == "__main__":
     seed.bloom()
     print("[statistics for Sunflower]")
     display_stats(seed)
+
+    print("\n=== Anonymous")
+    anon = Plant.anonymous()
+    anon.show()
+    print(f"[statistics for {anon.name}]")
+    display_stats(anon)
